@@ -33,6 +33,7 @@ const AddProducts = () => {
                             <form onSubmit={handleOnSubmit} className="bg-white p-3 rounded m-auto">
                                 <input className="w-100" onBlur={handleOnBlur} type="text" id="title1" name="title" placeholder="title" />   <br /><br />
                                 <input className="w-100" onBlur={handleOnBlur} type="text" id="Description1" name="description" placeholder="description" />   <br /><br />
+                                <input className="w-100" onBlur={handleOnBlur} type="text"  name="price" placeholder="price" />   <br /><br />
                                 <input className="w-100" onBlur={handleOnBlur} type="text" id="imagelink1" name="imagelink" placeholder="image link" />   <br /><br />
                                 <button className="btn btn-info w-100" type="submit">Add Product</button>
                             </form>
