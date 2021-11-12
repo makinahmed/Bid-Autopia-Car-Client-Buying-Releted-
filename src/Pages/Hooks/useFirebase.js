@@ -56,7 +56,7 @@ const useFirebase = () => {
     useEffect(() => {
         let hi = true;
 
-        fetch(`http://localhost:5000/users/isAdmin?email=${user.email}`)
+        fetch(`https://rocky-mountain-28255.herokuapp.com/users/isAdmin?email=${user.email}`)
             .then(res => res.json())
             .then(data => {
                 const admin = data?.admin;
@@ -67,7 +67,7 @@ const useFirebase = () => {
     }, [user?.email])
 
     useEffect(() => {
-        fetch(`http://localhost:5000/user/${user.email}`)
+        fetch(`https://rocky-mountain-28255.herokuapp.com/user/${user.email}`)
             .then(res => res.json())
             .then(data => setNewUser(data))
     }, [user.email])

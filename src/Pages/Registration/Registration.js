@@ -26,7 +26,7 @@ const Registration = () => {
     const handleOnClick = () => {
         registerUser(createUser.email, createUser.password, history)
         setLoading(true)
-        fetch(`http://localhost:5000/createNewUser`, {
+        fetch(`https://rocky-mountain-28255.herokuapp.com/createNewUser`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

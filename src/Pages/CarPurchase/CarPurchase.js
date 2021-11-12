@@ -15,7 +15,7 @@ const CarParchases = () => {
 
     useEffect(() => {
         setLoading(true)
-        fetch(`http://localhost:5000/carPurchase/${id}`)
+        fetch(`https://rocky-mountain-28255.herokuapp.com/carPurchase/${id}`)
             .then(res => res.json())
             .then(data => setCar(data))
             .finally(() => setLoading(false))
@@ -23,7 +23,7 @@ const CarParchases = () => {
 
     const handleOnSubmit = e => {
         setLoading(true)
-        fetch(`http://localhost:5000/soldedOut`, {
+        fetch(`https://rocky-mountain-28255.herokuapp.com/soldedOut`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

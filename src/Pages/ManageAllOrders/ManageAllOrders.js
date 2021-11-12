@@ -9,7 +9,7 @@ const ManageAllOrders = () => {
 
     useEffect(() => {
        
-        fetch(`http://localhost:5000/manageAllOrders`)
+        fetch(`https://rocky-mountain-28255.herokuapp.com/manageAllOrders`)
             .then(res => res.json())
             .then(data => {
                 setOrders(data)
@@ -23,7 +23,7 @@ const ManageAllOrders = () => {
         const alert = window.confirm("Are You Sure?")
 
         if (alert) {
-            fetch(`http://localhost:5000/cancelOrder?email=${email}&&id=${id}`, {
+            fetch(`https://rocky-mountain-28255.herokuapp.com/cancelOrder?email=${email}&&id=${id}`, {
                 method: 'DELETE',
                 headers: {
                     'content-type': 'application/json'
@@ -44,7 +44,7 @@ const ManageAllOrders = () => {
     const handleOnclick = (email, id) => {
         setLoading(true)
         const approveProduct = { email, id }
-        fetch(`http://localhost:5000/approve`, {
+        fetch(`https://rocky-mountain-28255.herokuapp.com/approve`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

@@ -19,7 +19,7 @@ const ManageProducts = () => {
 
     const handleClick = (id) => {
         setLoading(true)
-        fetch(`http://localhost:5000/deleteProduct?id=${id}`, {
+        fetch(`https://rocky-mountain-28255.herokuapp.com/deleteProduct?id=${id}`, {
             method: 'DELETE',
             headers: {
                 'content-type': 'application/json'

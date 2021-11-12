@@ -6,7 +6,7 @@ const useProducts = () => {
     const { loading, setLoading } = useAuth()
     useEffect(() => {
         setLoading(true)
-        fetch('http://localhost:5000/products')
+        fetch('https://rocky-mountain-28255.herokuapp.com/products')
             .then(res => res.json())
             .then(data => {
                 setProducts(data)

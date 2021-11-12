@@ -7,7 +7,7 @@ const MyOrders = () => {
     const { loading, setLoading, user } = useAuth()
 
     useEffect(() => {
-        fetch(`http://localhost:5000/myOrders/${user.email}`)
+        fetch(`https://rocky-mountain-28255.herokuapp.com/myOrders/${user.email}`)
             .then(res => res.json())
             .then(data => setMyOrders(data))
             .finally(() => setLoading(false))
@@ -17,7 +17,7 @@ const MyOrders = () => {
         setLoading(true)
         const alert = window.confirm("Are You Sure?")
         if (alert) {
-            fetch(`http://localhost:5000/cancelOrder?email=${email}&&id=${id}`, {
+            fetch(`https://rocky-mountain-28255.herokuapp.com/cancelOrder?email=${email}&&id=${id}`, {
                 method: 'DELETE',
                 headers: {
                     'content-type': 'application/json'

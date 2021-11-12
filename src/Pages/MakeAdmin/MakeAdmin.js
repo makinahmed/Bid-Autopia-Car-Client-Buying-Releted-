@@ -12,7 +12,7 @@ const MakeAdmin = () => {
       
     }
     const handleOnSubmit = e => {
-        fetch(`http://localhost:5000/makeAdmin`, {
+        fetch(`https://rocky-mountain-28255.herokuapp.com/makeAdmin`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

@@ -16,7 +16,7 @@ const GiveReview = () => {
         setReviews(newReviews)
     }
     const handleOnSubmit = e => {
-        fetch(`http://localhost:5000/reviews`, {
+        fetch(`https://rocky-mountain-28255.herokuapp.com/reviews`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

@@ -4,7 +4,7 @@ import { Col, Container, Row } from 'react-bootstrap';
 const AddProducts = () => {
     const [product, setProduct] = useState()
     const handleOnSubmit = e => {
-        fetch(`http://localhost:5000/products`, {
+        fetch(`https://rocky-mountain-28255.herokuapp.com/products`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
