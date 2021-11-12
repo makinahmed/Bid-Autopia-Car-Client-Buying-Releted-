@@ -8,8 +8,9 @@ const PrivateRoute = ({ children, ...rest }) => {
     // console.log(user?.email, ' from private route');
     loading && <Spinner style={{ margin: '250px 500px' }} animation="border" role="status"> <span className="visually-hidden">Loading...</span>
     </Spinner>
-        return (
+    return (
         <Route
+
             {...rest}
             render={({ location }) =>
                 user?.email ? (
@@ -24,7 +25,7 @@ const PrivateRoute = ({ children, ...rest }) => {
                 )
             }
         />
-        );
+    );
 };
 
-        export default PrivateRoute;
+export default PrivateRoute;

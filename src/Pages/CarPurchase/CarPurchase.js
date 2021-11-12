@@ -19,7 +19,7 @@ const CarParchases = () => {
             .then(res => res.json())
             .then(data => setCar(data))
             .finally(() => setLoading(false))
-    }, [user.email])
+    }, [id])
 
     const handleOnSubmit = e => {
         setLoading(true)

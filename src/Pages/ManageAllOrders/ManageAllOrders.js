@@ -5,16 +5,19 @@ import useAuth from '../Hooks/useAuth';
 const ManageAllOrders = () => {
     const [orders, setOrders] = useState()
     const [isApproved, setIsApproved] = useState()
-    const { loading, setLoading } = useAuth()
+    const { loading, isAdmin, setLoading, user } = useAuth()
+
     useEffect(() => {
-        setLoading(true)
+       
         fetch(`http://localhost:5000/manageAllOrders`)
             .then(res => res.json())
             .then(data => {
                 setOrders(data)
 
-            }).finally(() => setLoading(false))
-    }, [isApproved])
+            })
+    }, [isAdmin])
+
+
     const handleClick = (email, id) => {
         setLoading(true)
         const alert = window.confirm("Are You Sure?")
@@ -37,7 +40,7 @@ const ManageAllOrders = () => {
         }
 
     }
-
+    // console.log(loading);
     const handleOnclick = (email, id) => {
         setLoading(true)
         const approveProduct = { email, id }
@@ -49,13 +52,15 @@ const ManageAllOrders = () => {
             body: JSON.stringify(approveProduct)
         })
             .then(res => res.json())
-            .then(data => setIsApproved(data.matchedCount))
+            .then(data => {
+                setIsApproved(data.matchedCount)
+            })
             .finally(() => setLoading(false))
     }
 
     return (
         <>
-            {!loading ? <Table responsive striped bordered hover>
+            {!loading && <Table responsive striped bordered hover>
                 <thead>
                     <tr>
                         <th className="fs-3">#</th>
@@ -82,9 +87,13 @@ const ManageAllOrders = () => {
 
                         </tr>)}
                 </tbody>
-            </Table> : <Spinner style={{ margin: '250px 500px' }} animation="border" role="status">
-                <span className="visually-hidden">Loading...</span>
-            </Spinner>}
+            </Table>
+            }
+            {
+                loading && <Spinner style={{ margin: '250px 500px' }} animation="border" role="status">
+                    <span className="visually-hidden">Loading...</span>
+                </Spinner>
+            }
         </>
     )
 };
