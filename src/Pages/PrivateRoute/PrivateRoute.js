@@ -9,22 +9,27 @@ const PrivateRoute = ({ children, ...rest }) => {
     loading && <Spinner style={{ margin: '250px 500px' }} animation="border" role="status"> <span className="visually-hidden">Loading...</span>
     </Spinner>
     return (
-        <Route
+        <>
+           {
+           
+           user?.email ? <Route
 
-            {...rest}
-            render={({ location }) =>
-                user?.email ? (
-                    children
-                ) : (
-                    <Redirect
-                        to={{
-                            pathname: "/login",
-                            state: { from: location }
-                        }}
-                    />
-                )
-            }
-        />
+                {...rest}
+                render={({ location }) =>
+                    user?.email ? (
+                        children
+                    ) : (
+                        <Redirect
+                            to={{
+                                pathname: "/login",
+                                state: { from: location }
+                            }}
+                        />
+                    )
+                }
+            /> :''
+        }
+        </>
     );
 };
 

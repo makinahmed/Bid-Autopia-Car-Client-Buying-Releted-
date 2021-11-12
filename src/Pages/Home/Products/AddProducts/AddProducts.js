@@ -12,6 +12,7 @@ const AddProducts = () => {
             body: JSON.stringify(product)
         })
         e.preventDefault()
+        e.target.reset()
     }
     const handleOnBlur = e => {
         const filed = e.target.name;

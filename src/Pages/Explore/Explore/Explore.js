@@ -13,14 +13,17 @@ const Explore = () => {
                 <h1 className="my-5 text-center text-success">Our Collections</h1>
                 <Row >
                     {
-                        products.map(product => <Col md={6} sm={12}>
+                        products.map(product => <Col className="my-5" md={6} sm={12}>
                             <Card>
                                 <div style={{ height: '300px' }}>
                                     <Card.Img style={{ width: '100%', height: '100%' }} variant="top" src={product.imagelink} />
                                 </div>
                                 <Card.Body>
+                                    <div  style={{ display: 'flex', justifyContent: 'space-between' }}>
                                     <Card.Title>{product.title}</Card.Title>
-                                    <Card.Text>
+                                    <Card.Title>{product.price}</Card.Title>
+                                    </div>
+                                    <Card.Text  style={{height: '130px'}}>
                                         {
                                             product.description.slice(0, 300)
                                         }

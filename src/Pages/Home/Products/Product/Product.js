@@ -12,9 +12,11 @@ const Product = (props) => {
                     <Card.Img style={{ width: '100%', height: '100%' }} variant="top" src={imagelink} />
                 </div>
                 <Card.Body>
-                    <Card.Title >{title}</Card.Title>
-                    <Card.Title style={{ textAlign: 'right' }}>{price}</Card.Title>
-                    <Card.Text>
+                    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                        <Card.Title >{title}</Card.Title>
+                        <Card.Title >${price}</Card.Title>
+                    </div>
+                    <Card.Text style={{height: '130px'}}>
                         {
                             description.slice(0, 200)
                         }

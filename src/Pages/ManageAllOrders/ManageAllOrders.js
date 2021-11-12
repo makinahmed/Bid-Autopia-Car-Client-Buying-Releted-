@@ -4,11 +4,11 @@ import useAuth from '../Hooks/useAuth';
 
 const ManageAllOrders = () => {
     const [orders, setOrders] = useState()
-    const [isApproved, setIsApproved] = useState()
+    // const [isApproved, setIsApproved] = useState()
     const { loading, isAdmin, setLoading, user } = useAuth()
 
     useEffect(() => {
-       
+
         fetch(`https://rocky-mountain-28255.herokuapp.com/manageAllOrders`)
             .then(res => res.json())
             .then(data => {
@@ -53,7 +53,8 @@ const ManageAllOrders = () => {
         })
             .then(res => res.json())
             .then(data => {
-                setIsApproved(data.matchedCount)
+                const approvedOrders = orders.filter(myorder => myorder._id != id)
+                setOrders(approvedOrders)
             })
             .finally(() => setLoading(false))
     }

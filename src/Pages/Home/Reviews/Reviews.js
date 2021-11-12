@@ -21,7 +21,7 @@ const Reviews = () => {
                     <Row className="">
                         {
                             reviews.map(review => <Col className="my-3 shadow bg-body rounded " key={review._id} md={4} sm={6}>
-                                <Card style={{ width: '18rem' }} className="border-0">
+                                <Card style={{ width: '18rem',height:'200px' }} className="border-0">
                                     <Card.Body>
                                         <Card.Title>{review?.fullName}</Card.Title>
                                         <Card.Text>
