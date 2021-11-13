@@ -36,19 +36,22 @@ const ManageProducts = () => {
 
     return (
         <>
-            <h1 className="text-center text-success my-5">All Available Producs List</h1>
+            <h1 className="text-center text-success my-5">All Available Products List</h1>
             {
                 !loading ? <Container>
                     <Row >
                         {
-                            products.map(product => <Col key={product._id} md={6} sm={12}>
+                            products.map(product => <Col key={product._id} md={6} sm={12} className="my-3">
                                 <Card>
                                     <div style={{ height: '300px' }}>
                                         <Card.Img style={{ width: '100%', height: '100%' }} variant="top" src={product.imagelink} />
                                     </div>
                                     <Card.Body>
-                                        <Card.Title>{product.title}</Card.Title>
-                                        <Card.Text>
+                                        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                                            <Card.Title>{product.title}</Card.Title>
+                                            <Card.Title>${product.price}</Card.Title>
+                                        </div>
+                                        <Card.Text style={{height: '120px'}}>
                                             {
                                                 product.description.slice(0, 300)
                                             }

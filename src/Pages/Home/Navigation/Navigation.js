@@ -18,7 +18,7 @@ const Navigation = () => {
                                 <Nav.Link as={Link} to="/makeAdmin">Make Admin</Nav.Link>
                                 <Nav.Link as={Link} to="/addProducts">Add Cars</Nav.Link>
                                 <Nav.Link as={Link} to="/manageAllOrders">Manage All Orders</Nav.Link>
-                                <Nav.Link as={Link} to="/manageProducts">Manage Products</Nav.Link>
+                                <Nav.Link as={Link} to="/manageProducts">Manage Cars</Nav.Link>
                             </>: ''}
                             {!isAdmin && <>
                                 <Nav.Link as={Link} to="/home">Home</Nav.Link>
