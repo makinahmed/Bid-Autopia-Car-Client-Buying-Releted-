@@ -21,7 +21,7 @@ const Explore = () => {
                                 <Card.Body>
                                     <div  style={{ display: 'flex', justifyContent: 'space-between' }}>
                                     <Card.Title>{product.title}</Card.Title>
-                                    <Card.Title>{product.price}</Card.Title>
+                                    <Card.Title>${product.price}</Card.Title>
                                     </div>
                                     <Card.Text  style={{height: '130px'}}>
                                         {

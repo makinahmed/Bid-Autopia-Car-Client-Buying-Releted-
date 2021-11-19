@@ -5,14 +5,11 @@ import useAuth from '../Hooks/useAuth';
 
 const PrivateRoute = ({ children, ...rest }) => {
     const { user, loading } = useAuth()
-    // console.log(user?.email, ' from private route');
     loading && <Spinner style={{ margin: '250px 500px' }} animation="border" role="status"> <span className="visually-hidden">Loading...</span>
     </Spinner>
     return (
         <>
-           {
-           
-           user?.email ? <Route
+            <Route
 
                 {...rest}
                 render={({ location }) =>
@@ -27,8 +24,8 @@ const PrivateRoute = ({ children, ...rest }) => {
                         />
                     )
                 }
-            /> :''
-        }
+            />
+
         </>
     );
 };

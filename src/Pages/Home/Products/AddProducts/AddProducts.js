@@ -27,7 +27,7 @@ const AddProducts = () => {
                 <Row className="bg-info p-5">
 
                     <Col md={4} sm={12}></Col>
-                    <Col md={3} sm={12}>
+                    <Col md={5} sm={12}>
 
 
                         <div  style={{ textAlign: 'left', height: '650px' }}>

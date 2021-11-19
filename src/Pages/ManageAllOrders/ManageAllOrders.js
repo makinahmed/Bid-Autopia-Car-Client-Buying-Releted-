@@ -32,7 +32,7 @@ const ManageAllOrders = () => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    const updatedOrders = orders.filter(myorder => myorder._id != id)
+                    const updatedOrders = orders.map(myorder => myorder)
                     setOrders(updatedOrders)
                 }).finally(() => setLoading(false))
         } else {
@@ -80,6 +80,8 @@ const ManageAllOrders = () => {
                             <td className="fs-4 text-center">{order?.productName}</td>
                             <td className="fs-4 text-center">{order?.status}</td>
                             <td><button className="btn btn-info fs-5 mx-auto" onClick={() => handleOnclick(order?.email, order?._id)}>Approve booking request</button></td>
+
+
                             <td><button
                                 className="btn btn-danger fs-5 mx-auto"
                                 onClick={() => handleClick(order?.email, order?._id)}

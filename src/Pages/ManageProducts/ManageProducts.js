@@ -7,8 +7,8 @@ import useProducts from '../Hooks/useProducts';
 
 const ManageProducts = () => {
 
-    const { loading, setLoading } = useAuth()
-    const { products, setProducts, } = useProducts()
+    // const { loading, setLoading } = useAuth()
+    const { products, setProducts,loading ,setLoading} = useProducts()
     const location = useLocation()
     const history = useHistory()
     // const uri_link = location?.pathname || '/'
@@ -59,7 +59,7 @@ const ManageProducts = () => {
 
                                     </Card.Body>
 
-                                    <Button onClick={() => handleClick(product._id)} className="btn btn-success" variant="primary">Delete Products</Button>
+                                    <Button onClick={() => handleClick(product._id)} className="btn btn-success" variant="primary">Delete Car</Button>
 
                                 </Card>
                             </Col>)

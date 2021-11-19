@@ -6,11 +6,8 @@ import useAuth from '../Hooks/useAuth';
 const CarParchases = () => {
     const { id } = useParams();
     const [car, setCar] = useState()
-
     const [purchase, setPurchase] = useState()
     const { loading, user, setLoading, newUser } = useAuth()
-
-
 
 
     useEffect(() => {
@@ -45,8 +42,6 @@ const CarParchases = () => {
         newPurchase[field] = value;
         newPurchase.fullName = newUser?.fullName
         newPurchase.productName = car?.title
-        newPurchase.address = newUser?.address
-        newPurchase.address = newUser?.phone
         newPurchase.email = newUser?.email
         newPurchase.status = "pending"
         setPurchase(newPurchase)
@@ -59,11 +54,11 @@ const CarParchases = () => {
             <Row>
                 <Col lg={6} sm={12}>
                     <form onSubmit={handleOnSubmit}>
-                        <input value={newUser?.fullName} placeholder="fullName" type="text" name="fullName"  /><br /><br />
-                        <input placeholder="productName" value={car?.title} type="text" name="productName"  /><br /><br />
+                        <input value={newUser?.fullName} placeholder="fullName" type="text" name="fullName" /><br /><br />
+                        <input placeholder="productName" value={car?.title} type="text" name="productName" /><br /><br />
                         <input value={user.email} placeholder="email" type="email" name="email" /><br /><br />
-                        <input placeholder="address" type="address" value={newUser?.address} name="address"  /><br /><br />
-                        <input placeholder="phone" type="text" value={newUser?.phone} name="phone" /><br /><br />
+                        <input placeholder="address" onChange={handleOnBlur} type="address" name="address" /><br /><br />
+                        <input placeholder="phone" type="text" onChange={handleOnBlur} name="phone" /><br /><br />
 
                         <input onClick={handleOnBlur} value="CreditCard" type="radio" name="payment" id="creditCard" />
                         <label className="ms-3" htmlFor="creditCard">Credit Card</label>
@@ -85,7 +80,6 @@ const CarParchases = () => {
                                     car?.description.slice(0, 200)
                                 }
                             </Card.Text>
-
                         </Card.Body>
                     </Card>
                 </Col>
