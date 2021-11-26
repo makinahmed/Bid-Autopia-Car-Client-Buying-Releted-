@@ -1,12 +1,22 @@
 import Button from '@restart/ui/esm/Button';
-import React from 'react';
+import AOS from 'aos';
+import React, { useEffect } from 'react';
 import { Card, Col, Container, Row, Spinner } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
 import useProducts from '../../Hooks/useProducts';
-
+import 'aos/dist/aos.css';
 const Explore = () => {
     const { products, loading } = useProducts()
+    useEffect(() => {
+        AOS.init({
+            duration: 1000,
+            dataAosEasing: "ease-out-cubic",
+            dataAosAnchorPlacement: "center-center"
+
+        });
+    }, [])
+    
     return (
         <>
             {!loading ? <Container>
@@ -14,16 +24,16 @@ const Explore = () => {
                 <Row >
                     {
                         products.map(product => <Col className="my-5" md={6} sm={12}>
-                            <Card>
+                            <Card className="shadow-sm p-3 mb-5 bg-body rounded" data-aos={`zoom-in`}>
                                 <div style={{ height: '300px' }}>
                                     <Card.Img style={{ width: '100%', height: '100%' }} variant="top" src={product.imagelink} />
                                 </div>
                                 <Card.Body>
-                                    <div  style={{ display: 'flex', justifyContent: 'space-between' }}>
-                                    <Card.Title>{product.title}</Card.Title>
-                                    <Card.Title>${product.price}</Card.Title>
+                                    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                                        <Card.Title>{product.title}</Card.Title>
+                                        <Card.Title>${product.price}</Card.Title>
                                     </div>
-                                    <Card.Text  style={{height: '130px'}}>
+                                    <Card.Text style={{ height: '130px' }}>
                                         {
                                             product.description.slice(0, 300)
                                         }
@@ -31,7 +41,7 @@ const Explore = () => {
 
                                 </Card.Body>
                                 <Link to={`/explore/${product._id}`}>
-                                    <Button  className="w-100 btn btn-success" variant="primary">Purchase</Button>
+                                    <Button className="w-100 btn btn-success" variant="primary">Purchase</Button>
                                 </Link>
                             </Card>
                         </Col>)

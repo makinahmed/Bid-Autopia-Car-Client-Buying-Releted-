@@ -7,7 +7,7 @@ const Product = (props) => {
     const { imagelink, description, price, title, _id } = props.product;
     return (
         <Col md={4} sm={6} className="my-2">
-            <Card>
+            <Card className="shadow-sm p-3 mb-5 bg-body rounded">
                 <div style={{ height: '250px' }}>
                     <Card.Img style={{ width: '100%', height: '100%' }} variant="top" src={imagelink} />
                 </div>

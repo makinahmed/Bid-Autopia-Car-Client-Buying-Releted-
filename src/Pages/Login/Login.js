@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Col, Container, Row, Spinner } from 'react-bootstrap';
 import { Link, useLocation, useHistory } from 'react-router-dom';
 import useAuth from '../Hooks/useAuth';
-
+import LoginImage from '../../images/login.png'
 const Login = () => {
     const [loginUser, setLoginUser] = useState()
     const location = useLocation()
@@ -17,8 +17,8 @@ const Login = () => {
         setLoginUser(newLoginUser)
     }
     const handleOnClick = () => {
-     
-        signInUser(loginUser.email, loginUser.password,location, history)
+
+        signInUser(loginUser.email, loginUser.password, location, history)
 
     }
 
@@ -27,10 +27,10 @@ const Login = () => {
 
     return (
         <Container fluid>
-            <Row className="bg-info p-5" >
-                <Col md={4} sm={12}></Col>
-                <Col md={4} sm={12}>
-                    {!loading ? <div style={{ textAlign: 'left', height: '650px' }}>
+            <Row className=" p-5 mx-auto">
+           
+                <Col md={4} sm={12} className="ms-5" style={{textAlign:'left'}}>
+                    {!loading ? <div >
                         <form className="bg-white p-3 rounded m-auto">
                             <h2 className="mt-3 mb-5 text-center">Login Form</h2>
                             <input className="w-100" placeholder="email" type="email" name="email" onBlur={handleOnBlur} /><br /><br />
@@ -45,6 +45,9 @@ const Login = () => {
                     </div> : <Spinner style={{ margin: '250px 500px' }} animation="border" role="status">
                         <span className="visually-hidden">Loading...</span>
                     </Spinner>}
+                </Col>
+                <Col md={4} className="me-1"  sm={12} style={{textAlign: 'right'}}>
+                    <img style={{width: '120%'}} src={LoginImage} alt="" />
                 </Col>
             </Row>
         </Container>

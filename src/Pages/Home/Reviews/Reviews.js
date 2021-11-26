@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import AOS from 'aos';
 import { Card, Col, Container, Row, Spinner } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCoffee, faStar } from '@fortawesome/free-solid-svg-icons'
 import useAuth from '../../Hooks/useAuth';
+import 'aos/dist/aos.css';
 
 var Rating = require('react-rating').default;
 const Reviews = () => {
@@ -13,6 +15,11 @@ const Reviews = () => {
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [])
+
+
+    useEffect(()=>{
+        AOS.init({duration: 2000});
+    },[])
     return (
         <>
             {!loading ?
@@ -20,21 +27,21 @@ const Reviews = () => {
                     <h1 className="text-success text-center my-5">What our Customer says!!</h1>
                     <Row className="">
                         {
-                            reviews.map(review => <Col className="my-3 shadow bg-body rounded " key={review._id} md={4} sm={6}>
-                                <Card style={{ width: '18rem',height:'200px' }} className="border-0">
-                                    <Card.Body>
-                                        <Card.Title>{review?.fullName}</Card.Title>
-                                        <Card.Text>
+                            reviews.map(review => <Col className="shadow-sm p-3 mb-5 bg-body rounded" key={review._id} md={4} sm={6}>
+                                <div data-aos="fade-up">
+                                  
+                                        <h3>{review?.fullName}</h3>
+                                        <p>
                                             {`${review?.opinion.slice(0, 100)}...`}
-                                        </Card.Text>
+                                        </p>
                                         <Rating
                                             stop={review?.rating}
 
                                             emptySymbol={<FontAwesomeIcon style={{ color: 'gold' }} icon={faStar} />}
                                             fullSymbol={<FontAwesomeIcon style={{ color: 'black' }} icon={faStar} />}
                                         />
-                                    </Card.Body>
-                                </Card>
+                                    
+                                </div>
                             </Col>)
                         }
                     </Row>
@@ -46,3 +53,5 @@ const Reviews = () => {
 };
 
 export default Reviews;
+
+

@@ -8,13 +8,18 @@ const MyOrders = () => {
 
     useEffect(() => {
         setLoading(true)
-        console.log("i am get orders");
-        fetch(`https://rocky-mountain-28255.herokuapp.com/myOrders/${user.email}`)
+
+        fetch(`https://rocky-mountain-28255.herokuapp.com/myOrders/${user.email}`, {
+            headers: {
+                'content-type': 'application/json',
+                'authorization': `Bearer ${localStorage.getItem('bid_autoPia')}`
+
+            },
+        })
             .then(res => res.json())
             .then(data => setMyOrders(data))
             .finally(() => setLoading(false))
     }, [])
-
 
 
     const handleClick = (email, id) => {
@@ -24,7 +29,8 @@ const MyOrders = () => {
             fetch(`https://rocky-mountain-28255.herokuapp.com/cancelOrder?email=${email}&&id=${id}`, {
                 method: 'DELETE',
                 headers: {
-                    'content-type': 'application/json'
+                    'content-type': 'application/json',
+
                 },
                 body: JSON.stringify()
             })

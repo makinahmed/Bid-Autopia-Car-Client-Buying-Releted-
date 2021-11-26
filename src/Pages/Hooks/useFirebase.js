@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signOut, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, getIdToken, createUserWithEmailAndPassword, onAuthStateChanged, signOut, signInWithEmailAndPassword } from "firebase/auth";
 import { initilizeFirebaseApp } from '../Firebase/firebase.initilize';
 
 initilizeFirebaseApp();
@@ -76,6 +76,7 @@ const useFirebase = () => {
         setLoading(true)
         const unsubscribe = onAuthStateChanged(auth, (user) => {
             if (user) {
+                user.getIdToken().then(token => localStorage.setItem('bid_autoPia', token))
                 setUser(user)
             } else {
                 setUser({})
