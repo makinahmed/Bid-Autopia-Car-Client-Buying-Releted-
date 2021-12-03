@@ -9,17 +9,16 @@ const MyOrders = () => {
     useEffect(() => {
         setLoading(true)
 
-        fetch(`https://rocky-mountain-28255.herokuapp.com/myOrders/${user.email}`, {
+        fetch(`https://rocky-mountain-28255.herokuapp.com/myOrders/${user.email}`,{
             headers: {
                 'content-type': 'application/json',
                 'authorization': `Bearer ${localStorage.getItem('bid_autoPia')}`
-
             },
         })
             .then(res => res.json())
             .then(data => setMyOrders(data))
             .finally(() => setLoading(false))
-    }, [])
+    }, [user.email])
 
 
     const handleClick = (email, id) => {

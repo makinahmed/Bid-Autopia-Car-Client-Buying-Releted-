@@ -18,18 +18,18 @@ const Navigation = () => {
         <>
             <Navbar style={navbarStyle} variant="dark" expand="lg" >
                 <Container>
-                    <Navbar.Brand href="/">Bid Autopia</Navbar.Brand>
+                    <Navbar.Brand href="/"><span>BID AUTOPIA</span></Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="ms-auto">
                             {!isAdmin && <>
-                                <Nav.Link as={Link} to="/home"><span className="text-color">Home</span></Nav.Link>
-                                <Nav.Link className="text-color" as={Link} to="/explore">Explore</Nav.Link>
+                                <Nav.Link as={Link} to="/home"><span className="text-color">HOME</span></Nav.Link>
+                                <Nav.Link className="text-color" as={Link} to="/explore">EXPLORE</Nav.Link>
 
 
                             </>}
                             {
-                                user?.email && <Nav.Link as={Link} to="/dashboard" style={navTestColor}>DashBoard</Nav.Link>
+                                user?.email && <Nav.Link as={Link} to="/dashboard" style={navTestColor}>DASHBOARD</Nav.Link>
 
                             }
                             {
@@ -38,9 +38,9 @@ const Navigation = () => {
                                     <Nav.Link as={Link} to="/login"><button
                                         className="btn"
                                         style={{ outline: 'none', border: 'none', padding: '0', backgroundColor: '#198754' }}
-                                        onClick={signOutUser}>Log Out</button ></Nav.Link>
+                                        onClick={signOutUser}>LOG OUT</button ></Nav.Link>
 
-                                </> : <Nav.Link as={Link} to="/login">Login</Nav.Link>
+                                </> : <Nav.Link as={Link} to="/login">LOG IN</Nav.Link>
                             }
                         </Nav>
                     </Navbar.Collapse>
