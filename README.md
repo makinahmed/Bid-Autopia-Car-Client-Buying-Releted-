@@ -17,13 +17,6 @@
     * Only Logged in users can see dashboard.
     * A user can cancel orders / bookings .
 
-
-### Description : 
-
-    Bid Autopia is  car dealer's Website. Here any kind of cars is available . 
-    Any prominent car brands you can find in this website. Like : SPORT-UTILITY VEHICLE,
-    COUPE. Mercedes-Benz,HATCHBACK,SPORTS CAR,CONVERTIBLE , HYBRID, ELECTRIC cars.
-
 ### Tools : 
 
     * ReactJs,
